@@ -10,36 +10,29 @@ public class Directory {
 
 
     public Directory() {
+        // makes instance root as the images root directory
         this.root = new File("Images/");
+        // makes an array list of all the subdirectories in the root
         this.listSubs(this.root);
+        // for each image in subdirs makes a new InsertValues object and inserts into images arraylist
         this.themesImages(this.subDirs);
     }
 
     public ArrayList<File> getSubs() {
         return this.subDirs;
-    }
+        }
 
     public ArrayList<InsertValues> getImages() {
         return this.images;
     }
 
-    public static void main(String[] args) {
-
-        Directory test = new Directory();
-
-        // ArrayList<ArrayList<Object>> images = test.themesImages(test.subDirs);
-
-        for (InsertValues value : test.images) {
-            System.out.println(value.getTitle() + " title");
-            System.out.println(value.getTheme() + " theme");
-            System.out.println(value.getImage() + " image");
-        }
-    }
     
     public ArrayList<File> listSubs(File dirname) {
+        // makes array of subdirectories inside of root
         File[] fileList = dirname.listFiles();
 
         for (File file : fileList) {
+            // adds sub into subDirs instance variable
             this.subDirs.add(file);
         }
 
@@ -48,9 +41,12 @@ public class Directory {
 
     public ArrayList<InsertValues> themesImages(ArrayList<File> dirs) {
 
+        // for each subdirectory in list passed in 
         for (File sub : dirs) {
+            // makes a list of .jpg files inside of the sub
             File[] fileList = sub.listFiles();
 
+            // for each file in list of jpgs make a new InsertValues and adds the object to images arraylist
             for (File image : fileList) {
                 String title = image.toString().substring(sub.toString().length()+1, image.toString().length()-4);
                 String theme = sub.toString().substring(7);
