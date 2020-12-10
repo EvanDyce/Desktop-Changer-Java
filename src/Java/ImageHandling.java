@@ -10,13 +10,16 @@ public class ImageHandling {
 
         byte[] imgBytes = null;
 
+        // gets the image associated with the title passed as string
         try (PreparedStatement ps = db.conn.prepareStatement("SELECT image FROM \"ImagesDB\" WHERE title= ? ")) {
             
+            // sets value and executes query
             ps.setString(1, title);
             ResultSet rs = ps.executeQuery();
 
             if (rs != null) {
                 while (rs.next()){
+                    // gets the bytes from the sql bytea type
                     imgBytes = rs.getBytes(1);
                     return imgBytes;
                 }
@@ -31,6 +34,7 @@ public class ImageHandling {
         return imgBytes;
     }
 
+    // given array of bytes writes to the current.jpg file
     public void binToImg (byte[] imgBytes) 
         throws IOException {
 

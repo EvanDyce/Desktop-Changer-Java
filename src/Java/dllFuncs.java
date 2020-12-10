@@ -6,21 +6,17 @@ import com.sun.jna.Library;
 public class dllFuncs {
 
     public interface Idll extends Library {
+        // creates interface that loads the dll file
         Idll INSTANCE = (Idll)Native.load("PATH TO .dll FILE", Idll.class);
 
         void Java_dllFuncs_change_wallpaper();
     }
 
+    // constructor makes instance and calls the dll function
     public dllFuncs() {
-        Idll gang = Idll.INSTANCE;
+        Idll dllRef = Idll.INSTANCE;
 
-        gang.Java_dllFuncs_change_wallpaper();
+        dllRef.Java_dllFuncs_change_wallpaper();
     }
 
-    public static void main(String[] args) {
-        Idll gang = Idll.INSTANCE;
-
-        gang.Java_dllFuncs_change_wallpaper();
-    
-    }
 }
