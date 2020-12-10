@@ -1,5 +1,6 @@
 #pragma once
 
+// main dll header file for my written code
 #if DESKTOP_EXPORTS
 #define DESKTOP_API __declspec(dllexport)
 #else

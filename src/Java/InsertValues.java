@@ -2,6 +2,8 @@ package src.Java;
 
 import java.io.File;
 
+
+// the class used to create objects that are inserted into db
 public class InsertValues {
 
     private String title;
