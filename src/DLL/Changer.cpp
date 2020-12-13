@@ -10,7 +10,7 @@
 // the ShObjIdl_core header file was a life saver 
 // I couldn't get it to work with SystemsParamatersInfo it would just make my desktop black
 void Java_dllFuncs_change_wallpaper() {
-    std::wstring x = L"PATH TO IMAGE FILE";
+    std::wstring x = L"path to current.jpg";
     HRESULT ad;
     CoInitialize(NULL);
 

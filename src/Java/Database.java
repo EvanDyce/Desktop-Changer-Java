@@ -6,13 +6,14 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.Date;
 
+
 import java.io.FileInputStream;
 
 
 public class Database {
-    private final String url = "LINK TO SQL SERVER USING JDBC";
-    private final String user = "SQL USER";
-    private final String password = "SQL PASSWORD";
+    private final String url = "jdbc link to sql server";
+    private final String user = "sql username";
+    private final String password = "sql password";
     public Connection conn;
     private int counter = 0;
 
@@ -101,7 +102,7 @@ public class Database {
         try (PreparedStatement stmt = this.conn.prepareStatement("SELECT title FROM (SELECT * FROM \"ImagesDB\" WHERE theme=?) AS temp ORDER BY RANDOM() LIMIT 1")) {
 
             // if it's december uses christmas backgrounds
-            if (LocalDate.now().getMonth() == Month.DECEMBER) {
+            if (LocalDate.now().getMonth() == Month.DECEMBER && (LocalDate.now().getDayOfMonth() == 18 || LocalDate.now().getDayOfMonth() == 19 ||LocalDate.now().getDayOfMonth() == 20 ||LocalDate.now().getDayOfMonth() == 21 ||LocalDate.now().getDayOfMonth() == 22 ||LocalDate.now().getDayOfMonth() == 23 ||LocalDate.now().getDayOfMonth() == 24 ||LocalDate.now().getDayOfMonth() == 25)) {
 
                 theme = "Christmas"; 
 
@@ -120,7 +121,9 @@ public class Database {
             ResultSet result = stmt.executeQuery();
 
             while (result.next()) {
+                ImageHandling temp = new ImageHandling();
                 rs = result.getString("title");
+                temp.binToImg(temp.getBin(rs, this), "buffer.jpg");
                 return rs;
             }
 
@@ -129,5 +132,7 @@ public class Database {
         }
         return rs;
     }
+
+    
 }
 

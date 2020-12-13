@@ -7,7 +7,7 @@ public class dllFuncs {
 
     public interface Idll extends Library {
         // creates interface that loads the dll file
-        Idll INSTANCE = (Idll)Native.load("PATH TO .dll FILE", Idll.class);
+        Idll INSTANCE = (Idll)Native.load("path to .dll file", Idll.class);
 
         void Java_dllFuncs_change_wallpaper();
     }

@@ -1,3 +1,5 @@
 .vscode/
 Desktop-WallpaperChanger/
 paths.txt
+*.bat
+*.jar
