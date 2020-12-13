@@ -8,8 +8,8 @@ class Main {
     private static Database db = new Database();
     private static Directory dir = new Directory();
     private static ImageHandling handler = new ImageHandling();
-    private static String bufferPath = "C:\\Users\\Evan Dyce\\Coding\\Java\\DesktopChanger\\buffer.jpg";
-    private static String currentPath = "C:\\Users\\Evan Dyce\\Coding\\Java\\DesktopChanger\\current.jpg";
+    private static String bufferPath = "Path to buffer.jpg file";
+    private static String currentPath = "Path to current.jpg file";
 
     public static void main(String[] args) {
         
